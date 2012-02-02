@@ -28,8 +28,6 @@ class Game(Base):
         import screens.menu
         menu = screens.menu.MainMenu()
         menu.draw_background(self.screen)
-        pass
-
 
 # Game entry point!
 g = Game()

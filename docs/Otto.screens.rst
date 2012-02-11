@@ -1,4 +1,4 @@
-screens Package
+Otto.screens Package
 ===============
 
 :mod:`menu` Module
@@ -7,5 +7,5 @@ screens Package
 .. automodule:: Otto.screens.menu
     :members:
     :undoc-members:
+    :special-members:
     :show-inheritance:
-

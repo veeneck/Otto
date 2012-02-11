@@ -66,7 +66,7 @@ class MainMenu(Base):
 
         messages = [
             {'layer' : 2, 'font' : 'resources/dinconra.ttf', 'size' : 35,
-                'color' : (77, 77, 77), 'topleft' : [650, 405], 'text' : 'play', 'key' : 'play'},
+                'color' : (77, 77, 77), 'topleft' : [660, 405], 'text' : 'play', 'key' : 'play'},
             {'layer' : 2, 'font' : 'resources/dinconra.ttf', 'size' : 35, 
                 'color' : (77, 77, 77), 'topleft' : [650, 455], 'text' : 'options', 'key' : 'options'},
             {'layer' : 2, 'font' : 'resources/dinconra.ttf', 'size' : 35, 

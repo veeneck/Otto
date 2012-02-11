@@ -32,13 +32,22 @@ class MainMenu(Base):
             for event in pygame.event.get():
                 self.handle_core_events(event)
 
+            # animation & events
+            self.check_menu_hover()
+
+            # drawing
             self.menu_group.draw(screen)
-            self.check_mouse_hover()
             self.font_group.draw(screen)
             pygame.display.flip()
 
-    def check_mouse_hover(self):
+    def check_menu_hover(self):
         coords = pygame.mouse.get_pos()
+        for key in self.font_group.messages:
+            message = self.font_group.messages[key]
+            if message['rect'] is not None and message['rect'].collidepoint(coords):
+                message['color'] = (199, 196, 70)
+            else:
+                message['color'] = (77, 77, 77)
             
     def load_resources(self):
         """

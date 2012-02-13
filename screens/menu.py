@@ -10,11 +10,13 @@ import pygame
 from lib.base import Base
 import lib.core
 import lib.services.font_manager
+import lib.services.sound_manager
 
 class MainMenu(Base):
 
     menu_group = pygame.sprite.LayeredUpdates()
     font_group = lib.services.font_manager.FontManager()
+    sound_group = lib.services.sound_manager.SoundManager()
     resources = {}
 
     def __init__(self):
@@ -28,6 +30,7 @@ class MainMenu(Base):
 
         self.load_resources()
         self.load_fonts()
+        self.load_sounds()
 
         while 1:
             for event in pygame.event.get():
@@ -56,7 +59,8 @@ class MainMenu(Base):
                 if icon['image'] is not 'otto_interface_circle.png':
                     icon['image'] = 'otto_interface_circle.png'
                     icon['sprite'] = self.load_sprite(icon, icon['sprite'])
-                    
+                    self.sound_group.play(message['key'])
+
             else:
                 message['color'] = (77, 77, 77)
                 if icon['image'] is not 'otto_interface_x.png':
@@ -100,3 +104,9 @@ class MainMenu(Base):
         ]
 
         self.font_group.add_messages(messages)
+
+    def load_sounds(self):
+        self.sound_group.add_sound('play', 'resources/sound/Otto_interface_snd_01.ogg')
+        self.sound_group.add_sound('option', 'resources/sound/Otto_interface_snd_02.ogg')
+        self.sound_group.add_sound('quit', 'resources/sound/Otto_interface_snd_03.ogg')
+

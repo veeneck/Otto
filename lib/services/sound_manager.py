@@ -11,5 +11,11 @@ class SoundManager:
         sound = pygame.mixer.Sound(file)
         self.sounds[key] = sound
 
-    def play(self, key):
+    def play_sound(self, key):
         self.sounds[key].play()
+
+    def add_music(self, file):
+        pygame.mixer.music.load(file)
+
+    def play_music(self):
+        pygame.mixer.music.play()

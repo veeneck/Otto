@@ -59,7 +59,7 @@ class MainMenu(Base):
                 if icon['image'] is not 'otto_interface_circle.png':
                     icon['image'] = 'otto_interface_circle.png'
                     icon['sprite'] = self.load_sprite(icon, icon['sprite'])
-                    self.sound_group.play(message['key'])
+                    self.sound_group.play_sound(message['key'])
 
             else:
                 message['color'] = (77, 77, 77)
@@ -109,4 +109,8 @@ class MainMenu(Base):
         self.sound_group.add_sound('play', 'resources/sound/Otto_interface_snd_01.ogg')
         self.sound_group.add_sound('option', 'resources/sound/Otto_interface_snd_02.ogg')
         self.sound_group.add_sound('quit', 'resources/sound/Otto_interface_snd_03.ogg')
+
+        self.sound_group.add_music('resources/sound/otto_basetrack.ogg')
+        pygame.mixer.music.set_volume(0.2)
+        self.sound_group.play_music()
 

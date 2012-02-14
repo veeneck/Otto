@@ -5,3 +5,4 @@ class GameState:
 	PAUSED = 3
 	PLAYING = 4
 	EXITING = 5
+	OPTIONS = 6

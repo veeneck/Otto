@@ -33,10 +33,20 @@ class MainMenu(Base):
         self.load_sounds()
 
         while 1:
+
+            clicked = False
+
             for event in pygame.event.get():
                 self.handle_core_events(event)
+                if event.type is pygame.MOUSEBUTTONDOWN:
+                    clicked = True
 
-            self.check_menu_hover()
+            ret = self.check_menu_hover(clicked)
+            if(ret):
+                if ret is lib.core.GameState.PLAYING:
+                    pygame.mixer.music.set_volume(1.0)
+                else:
+                    return ret
 
             self.menu_group.draw(screen)
             self.font_group.draw(screen)
@@ -47,7 +57,7 @@ class MainMenu(Base):
             MOUSE EVENTS
     --------------------------- """
 
-    def check_menu_hover(self):
+    def check_menu_hover(self, clicked):
 
         coords = pygame.mouse.get_pos()
         for key in self.font_group.messages:
@@ -55,17 +65,24 @@ class MainMenu(Base):
             icon = self.resources[message['key'] + '_icon']
 
             if message['rect'] is not None and message['rect'].collidepoint(coords):
+
                 message['color'] = (199, 196, 70)
+
                 if icon['image'] is not 'otto_interface_circle.png':
                     icon['image'] = 'otto_interface_circle.png'
                     icon['sprite'] = self.load_sprite(icon, icon['sprite'])
                     self.sound_group.play_sound(message['key'])
 
+                if clicked:
+                    return message['state']
+
             else:
                 message['color'] = (77, 77, 77)
                 if icon['image'] is not 'otto_interface_x.png':
                     icon['image'] = 'otto_interface_x.png'
-                    icon['sprite'] = self.load_sprite(icon, icon['sprite'])
+                    icon['sprite'] = self.load_sprite(icon, icon['sprite'])  
+        
+        return False      
     
     """ ---------------------------
             LOAD ASSETS
@@ -98,9 +115,9 @@ class MainMenu(Base):
     def load_fonts(self):
 
         messages = [
-            {'layer' : 2, 'font' : 'resources/dinconra.ttf', 'size' : 35, 'color' : (77, 77, 77), 'topleft' : [650, 405], 'text' : 'play', 'key' : 'play'},
-            {'layer' : 2, 'font' : 'resources/dinconra.ttf', 'size' : 35, 'color' : (77, 77, 77), 'topleft' : [650, 455], 'text' : 'options', 'key' : 'option'},
-            {'layer' : 2, 'font' : 'resources/dinconra.ttf', 'size' : 35, 'color' : (77, 77, 77), 'topleft' : [650, 505], 'text' : 'quit', 'key' : 'quit'}
+            {'layer' : 2, 'font' : 'resources/dinconra.ttf', 'size' : 35, 'color' : (77, 77, 77), 'topleft' : [650, 405], 'text' : 'play', 'key' : 'play', 'state' : lib.core.GameState.PLAYING},
+            {'layer' : 2, 'font' : 'resources/dinconra.ttf', 'size' : 35, 'color' : (77, 77, 77), 'topleft' : [650, 455], 'text' : 'options', 'key' : 'option', 'state' : lib.core.GameState.OPTIONS},
+            {'layer' : 2, 'font' : 'resources/dinconra.ttf', 'size' : 35, 'color' : (77, 77, 77), 'topleft' : [650, 505], 'text' : 'quit', 'key' : 'quit', 'state' : lib.core.GameState.EXITING}
         ]
 
         self.font_group.add_messages(messages)

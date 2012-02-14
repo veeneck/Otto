@@ -20,6 +20,10 @@ class Game(Base):
         
             if(self.game_state == lib.core.GameState.MENU):
                 self.show_menu()
+
+            elif(self.game_state == lib.core.GameState.EXITING):
+                sys.exit()
+                
             else:      
                 self.screen.fill(self.COLOR_BLACK)
                 pygame.display.flip()
@@ -27,7 +31,7 @@ class Game(Base):
     def show_menu(self):
         import screens.menu
         menu = screens.menu.MainMenu()
-        menu.draw_background(self.screen)
+        self.game_state = menu.draw_background(self.screen)
 
 # Game entry point!
 g = Game()

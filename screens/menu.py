@@ -43,10 +43,7 @@ class MainMenu(Base):
 
             ret = self.check_menu_hover(clicked)
             if(ret):
-                if ret is lib.core.GameState.PLAYING:
-                    pygame.mixer.music.set_volume(1.0)
-                else:
-                    return ret
+                return ret
 
             self.menu_group.draw(screen)
             self.font_group.draw(screen)
@@ -126,8 +123,3 @@ class MainMenu(Base):
         self.sound_group.add_sound('play', 'resources/sound/Otto_interface_snd_01.ogg')
         self.sound_group.add_sound('option', 'resources/sound/Otto_interface_snd_02.ogg')
         self.sound_group.add_sound('quit', 'resources/sound/Otto_interface_snd_03.ogg')
-
-        self.sound_group.add_music('resources/sound/otto_basetrack.ogg')
-        pygame.mixer.music.set_volume(0.2)
-        self.sound_group.play_music()
-

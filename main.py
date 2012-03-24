@@ -25,6 +25,7 @@ class Game(Base):
                 sys.exit()
                 
             else:
+                self.screen.fill(self.COLOR_BLACK)
                 self.play_level()
 
     def show_menu(self):

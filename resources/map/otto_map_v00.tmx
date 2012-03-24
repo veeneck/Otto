@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="25" height="25" tilewidth="64" tileheight="32">
+ <tileset firstgid="1" name="otto_desert_tiles_custom" tilewidth="64" tileheight="32">
+  <image source="otto_desert_tiles_custom.png" width="1024" height="1344"/>
+ </tileset>
+ <tileset firstgid="673" name="grassland_tiles" tilewidth="64" tileheight="32">
+  <image source="grassland_tiles.png" width="1024" height="1344"/>
+ </tileset>
+ <tileset firstgid="1345" name="tiles_64_64" tilewidth="64" tileheight="64">
+  <image source="tiles_64_64.png" width="1024" height="320"/>
+ </tileset>
+ <tileset firstgid="1425" name="trees_128x224" tilewidth="128" tileheight="224">
+  <image source="tiles_trees_128x224.png" width="512" height="448"/>
+ </tileset>
+ <tileset firstgid="1433" name="tiles_64x96" tilewidth="64" tileheight="96">
+  <image source="tiles_64x96.png" width="1024" height="384"/>
+ </tileset>
+ <layer name="BG_Sand" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJyNllmOwzAMQwvf/xLe7VtOPkzglZXb+RCaxAopUUua0+tVHquP5cfaY+Nc63k799l8S+DXz/vzsfXYhs88PhMcESY5/8tRzcd5IpwaxNEOZscZ85jnTPENcLUgzn3Jlfyu1Tx++1xns4mcVa8B7CiPqB4DXOLzWpN/4H5Yni29xy3d6vltxhfp4RyeYzcOab+R8zxWLxyuR4F1i0H3C/eqWTnPM7CJJa1VQ+mtXKSLsIUx4bMNkxpU4+jgZS0WTDkqP+pUwNmBI46ZPrUciH8Zjt6TVhn6tfTef6o1e5O93M2XHF5PzoH6OZrjiliWYWT4i0vnvhtVk0gjj138C/jSWX7sK86g6u2z7nuPO0WasyfYJ653TvHsFONoKa6Hztij3OOuiX6j/S0McShexV6hqXy4W4SnM4+jpntfMYZi59oPmpOZ3udJPa45Vswb70b7SP3Mb+Ft3nTG3SsMnbH/oxmJ5pn1mMbD9zymqL+3vc+5j2ZFeQnr27eefZvtmruStZ8B3q9vg/83cX/urhuWx/brP823b9bt+R/xKJY+
+  </data>
+ </layer>
+ <layer name="Water" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjAJUcJEZgWltPghfprI96OaD8CUa23EJCdPCfGR7qBU3uOxAx8PFDkrsoYcdxNhzmQr5hRg/UCtP0tIfuOwZSQAANyBVXg==
+  </data>
+ </layer>
+ <layer name="Paths" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAcbGNiYNjMRAWD8IDtQPO30NiOfUDzd+KxYzdQ7gCN3bARaP4OKKYV2Exj80EAFI7baWzHKBgFo2AUjIJRMJIBAPdXCuE=
+  </data>
+ </layer>
+ <layer name="TopShelf" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg84Awr7e3YSWM7DgLNP0ljO2jtB3rYsRBo/lka27GXRuaD4ngeFNPKD7QO/6N0SKe0Cn9kQI+8cARoxwEgvkAHu+gRZrTMF7uAeB+V09YpqLm76FBmjIJRMNQAANkNF6o=
+  </data>
+ </layer>
+ <layer name="LakeEdges" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztlMkKwCAMRL3kQ7vvC3T/+0aqtJUcSpP25ICIgvOME1TKy8vL618VoFSIIzVzC/KMwPGMfmAsuC4FOQ16zYRfJshwa7AaTDahQE2WMeIc49gIP24+Cdx9aoLDZdg6bM4Fkc/AfC997wlOLyp/LW4t/YPzXEYFB8fNYcV1bvalejm5+Og+6y590AkxetO/+u7VB//JG+0BzRl3
+  </data>
+ </layer>
+ <layer name="Bridge" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIKBAU2stLejjw52dNDBjrZh4o8WOtgxCkbBSAEAHzwDSQ==
+  </data>
+ </layer>
+ <objectgroup name="Edge" width="25" height="25" visible="0">
+  <object gid="674" x="0" y="480"/>
+  <object gid="674" x="256" y="0"/>
+ </objectgroup>
+ <layer name="ExtraSand" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2Bog4VMA+2CUUApWEZGHNIj3smxY+kwTI/kxA82sASPOdSyYzAAeviFEjuITdcrKLQDlz2LkMQpsQMXAJmJjikFoHwNCvPlULyUSuZSCgBfcRGk
+  </data>
+ </layer>
+ <objectgroup name="AdditionalFoliage" width="25" height="25">
+  <object gid="1353" x="537" y="459"/>
+  <object gid="1358" x="547" y="703"/>
+  <object gid="1357" x="513" y="738"/>
+  <object gid="1357" x="397" y="698"/>
+  <object gid="1357" x="219" y="555"/>
+  <object gid="1357" x="147" y="572"/>
+  <object gid="1349" x="595" y="705"/>
+  <object gid="1348" x="481" y="725"/>
+ </objectgroup>
+ <objectgroup name="FoliageandItems" width="25" height="25">
+  <object gid="1431" x="190" y="599"/>
+  <object gid="1429" x="55" y="600"/>
+  <object gid="1425" x="367" y="167"/>
+  <object gid="1363" x="395" y="335"/>
+  <object gid="1361" x="440" y="559"/>
+  <object gid="1365" x="102" y="606"/>
+  <object gid="1359" x="578" y="398"/>
+  <object gid="1359" x="323" y="651"/>
+  <object gid="1359" x="206" y="412"/>
+  <object gid="1359" x="327" y="428"/>
+  <object gid="1348" x="487" y="534"/>
+  <object gid="1348" x="484" y="425"/>
+  <object gid="1364" x="187" y="409"/>
+  <object gid="1357" x="638" y="39"/>
+  <object gid="1360" x="550" y="41"/>
+  <object gid="1426" x="703" y="683"/>
+  <object gid="1449" x="396" y="698"/>
+  <object gid="1452" x="511" y="402"/>
+  <object gid="1452" x="216" y="313"/>
+  <object gid="1451" x="189" y="383"/>
+  <object gid="1353" x="83" y="189"/>
+  <object gid="1352" x="53" y="236"/>
+  <object gid="1351" x="38" y="247"/>
+  <object gid="1364" x="327" y="35"/>
+  <object gid="1368" x="730" y="467"/>
+  <object gid="1367" x="773" y="428"/>
+  <object gid="1365" x="720" y="360"/>
+  <object gid="1431" x="746" y="778"/>
+  <object gid="1431" x="338" y="273"/>
+  <object gid="1431" x="729" y="436"/>
+  <object gid="1356" x="504" y="538"/>
+  <object gid="1357" x="212" y="376"/>
+  <object gid="1358" x="300" y="277"/>
+  <object gid="1356" x="459" y="198"/>
+  <object gid="1357" x="464" y="216"/>
+  <object gid="1357" x="617" y="190"/>
+  <object gid="1357" x="556" y="734"/>
+  <object gid="1357" x="67" y="589"/>
+  <object gid="1358" x="550" y="449"/>
+  <object gid="1358" x="719" y="405"/>
+  <object gid="1358" x="739" y="484"/>
+  <object gid="1425" x="560" y="187"/>
+ </objectgroup>
+</map>

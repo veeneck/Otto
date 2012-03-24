@@ -11,6 +11,7 @@ from lib.base import Base
 import lib.core
 import lib.services.font_manager
 import lib.services.sound_manager
+import lib.tiled.tiled_manager
 
 class PlayLevel(Base):
 
@@ -37,7 +38,7 @@ class PlayLevel(Base):
             for event in pygame.event.get():
                 self.handle_core_events(event)
 
-            screen.fill(self.COLOR_BLACK)
+            self.tiled_group.draw_maps(screen)
             pygame.display.flip()    
     
     """ ---------------------------
@@ -45,7 +46,7 @@ class PlayLevel(Base):
     --------------------------- """ 
             
     def load_resources(self):
-        pass
+        self.tiled_group = lib.tiled.tiled_manager.TiledManager()
 
     def load_fonts(self):
         pass

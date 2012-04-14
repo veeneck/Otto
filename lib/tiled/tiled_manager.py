@@ -47,6 +47,21 @@ class TiledManager:
          "spacing":0,
          "tileheight":64,
          "tilewidth":64
+        },
+    {
+         "firstgid":1425,
+         "image":"tiles_trees_128x224.png",
+         "imageheight":448,
+         "imagewidth":512,
+         "margin":0,
+         "name":"trees_128x224",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":224,
+         "tilewidth":128
         }
     ]
 
@@ -170,6 +185,554 @@ class TiledManager:
         }
     ]
 
+    objects = [
+                {
+                 "gid":1431,
+                 "height":0,
+                 "name":"3",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":190,
+                 "y":599
+                }, 
+                {
+                 "gid":1429,
+                 "height":0,
+                 "name":"3",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":55,
+                 "y":600
+                }, 
+                {
+                 "gid":1425,
+                 "height":0,
+                 "name":"3",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":367,
+                 "y":167
+                }, 
+                {
+                 "gid":1363,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":395,
+                 "y":335
+                }, 
+                {
+                 "gid":1361,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":440,
+                 "y":559
+                }, 
+                {
+                 "gid":1365,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":102,
+                 "y":606
+                }, 
+                {
+                 "gid":1359,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":578,
+                 "y":398
+                }, 
+                {
+                 "gid":1359,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":323,
+                 "y":651
+                }, 
+                {
+                 "gid":1359,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":206,
+                 "y":412
+                }, 
+                {
+                 "gid":1359,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":327,
+                 "y":428
+                }, 
+                {
+                 "gid":1348,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":487,
+                 "y":534
+                }, 
+                {
+                 "gid":1348,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":484,
+                 "y":425
+                }, 
+                {
+                 "gid":1364,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":187,
+                 "y":409
+                }, 
+                {
+                 "gid":1357,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":638,
+                 "y":39
+                }, 
+                {
+                 "gid":1360,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":550,
+                 "y":41
+                }, 
+                {
+                 "gid":1426,
+                 "height":0,
+                 "name":"3",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":703,
+                 "y":683
+                }, 
+                {
+                 "gid":1449,
+                 "height":0,
+                 "name":"1",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":396,
+                 "y":698
+                }, 
+                {
+                 "gid":1452,
+                 "height":0,
+                 "name":"1",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":511,
+                 "y":402
+                }, 
+                {
+                 "gid":1452,
+                 "height":0,
+                 "name":"1",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":216,
+                 "y":313
+                }, 
+                {
+                 "gid":1451,
+                 "height":0,
+                 "name":"1",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":189,
+                 "y":383
+                }, 
+                {
+                 "gid":1353,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":83,
+                 "y":189
+                }, 
+                {
+                 "gid":1352,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":53,
+                 "y":236
+                }, 
+                {
+                 "gid":1351,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":38,
+                 "y":247
+                }, 
+                {
+                 "gid":1364,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":327,
+                 "y":35
+                }, 
+                {
+                 "gid":1368,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":730,
+                 "y":467
+                }, 
+                {
+                 "gid":1367,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":773,
+                 "y":428
+                }, 
+                {
+                 "gid":1365,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":720,
+                 "y":360
+                }, 
+                {
+                 "gid":1431,
+                 "height":0,
+                 "name":"3",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":746,
+                 "y":778
+                }, 
+                {
+                 "gid":1431,
+                 "height":0,
+                 "name":"3",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":338,
+                 "y":273
+                }, 
+                {
+                 "gid":1431,
+                 "height":0,
+                 "name":"3",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":729,
+                 "y":436
+                }, 
+                {
+                 "gid":1356,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":504,
+                 "y":538
+                }, 
+                {
+                 "gid":1357,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":212,
+                 "y":376
+                }, 
+                {
+                 "gid":1358,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":300,
+                 "y":277
+                }, 
+                {
+                 "gid":1356,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":459,
+                 "y":198
+                }, 
+                {
+                 "gid":1357,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":464,
+                 "y":216
+                }, 
+                {
+                 "gid":1357,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":617,
+                 "y":190
+                }, 
+                {
+                 "gid":1357,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":556,
+                 "y":734
+                }, 
+                {
+                 "gid":1357,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":67,
+                 "y":589
+                }, 
+                {
+                 "gid":1358,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":550,
+                 "y":449
+                }, 
+                {
+                 "gid":1358,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":719,
+                 "y":405
+                }, 
+                {
+                 "gid":1358,
+                 "height":0,
+                 "name":"2",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":739,
+                 "y":484
+                }, 
+                {
+                 "gid":1425,
+                 "height":0,
+                 "name":"3",
+                 "properties":
+                    {
+
+                    },
+                 "type":"",
+                 "width":0,
+                 "x":560,
+                 "y":187
+                }]
+
     resource_dir = 'resources/map/'
 
     sprite_sheet = ''
@@ -184,10 +747,11 @@ class TiledManager:
     def draw_maps(self, surface):
         for key in range(len(self.layers)):
             self.draw_map(self.tilesets[self.layers[key]['tileset']], self.layers[key], surface)
+        self.draw_objects(surface)
 
     def draw_map(self, tileset, layer, surface):
-        starting_x = 512
-        starting_y = 0
+        starting_x = 576
+        starting_y = 32
         for index in range(0, layer['height']):
             target_index = (index * (layer['height']))
             for key in range(0, layer['width']):
@@ -209,5 +773,18 @@ class TiledManager:
             y = (math.floor(basis / tiles_per_row))*tileset['tileheight']
             x = (basis % tiles_per_row)*tileset['tilewidth']
         return [x, y, tileset['tilewidth'], tileset['tileheight']]
+
+    def draw_objects(self, surface):
+        for object in self.objects:
+            tileset = self.tilesets[int(object['name'])]
+            rect = self.get_tile_from_gid(tileset, object['gid'])
+
+
+            x = (((object['x']) - (object['y'])) / 32 + 24) * 32 - (tileset['tilewidth'] / 2) - 256 + 48
+
+            y = (((object['x']) + (object['y'])) / 2) - tileset['tileheight']
+
+            surface.blit(tileset['sheet'], (x, y), rect)
+
 
 

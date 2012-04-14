@@ -6,7 +6,7 @@ import lib.core
 class Game(Base):
 
     screen = False
-    game_state = lib.core.GameState.MENU
+    game_state = lib.core.GameState.PLAYING
 
     def __init__(self):
         Base.__init__(self)

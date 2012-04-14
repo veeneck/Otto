@@ -1,13 +1,11 @@
 """
-Screen to display the Main Menu.
-    :module: Otto.screens.menu
-    :synopsis: Contains its own game loop, and returns lib.core.GameState status
-        based on user selection.
+Screen to display the Main Menu.  
+**module** : Otto.screens.menu
 """
 
 import sys
 import pygame
-from lib.base import Base
+from   lib.base import Base
 import lib.core
 import lib.services.font_manager
 import lib.services.sound_manager
@@ -22,10 +20,8 @@ class MainMenu(Base):
     def __init__(self):
         Base.__init__(self)
 
-    """ ---------------------------
-            MAIN LOOP
-    --------------------------- """
-
+    # Main loop for this screen. Handles initial loading, and constant drawing
+    # until GameState changes.
     def draw_background(self, screen):
 
         self.load_resources()
@@ -50,10 +46,12 @@ class MainMenu(Base):
 
             pygame.display.flip()
 
-    """ ---------------------------
-            MOUSE EVENTS
-    --------------------------- """
+    """
+    ###Events
+    """
 
+    # Handles changing the display when various menu items are hovered over.
+    # Also handles the click action that changes the GameState.       
     def check_menu_hover(self, clicked):
 
         coords = pygame.mouse.get_pos()
@@ -81,10 +79,11 @@ class MainMenu(Base):
         
         return False      
     
-    """ ---------------------------
-            LOAD ASSETS
-    --------------------------- """ 
-            
+    """
+    ###Resources
+    """
+
+    # Load image resources into a pygame.LayeredUpdate for this screen.     
     def load_resources(self):
 
         self.resources = {
@@ -101,6 +100,8 @@ class MainMenu(Base):
             spr = self.load_sprite(asset, spr)
             self.menu_group.add(spr)
 
+    # Grab each image from file system and conver tto a Sprite before it is sent
+    # to menu_group (LayeredUpdate).
     def load_sprite(self, asset, spr):
         spr.image = pygame.image.load('resources/' + asset['image'])
         spr.rect = spr.image.get_rect()
@@ -109,6 +110,7 @@ class MainMenu(Base):
         asset['sprite'] = spr
         return spr
 
+    # Load a group of fonts using FontManager.
     def load_fonts(self):
 
         messages = [
@@ -119,6 +121,7 @@ class MainMenu(Base):
 
         self.font_group.add_messages(messages)
 
+    # Load sounds using SoundManager.
     def load_sounds(self):
         self.sound_group.add_sound('play', 'resources/sound/Otto_interface_snd_01.ogg')
         self.sound_group.add_sound('option', 'resources/sound/Otto_interface_snd_02.ogg')

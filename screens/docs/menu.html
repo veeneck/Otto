@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>menu.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id="background"></div>
+<div id='container'>
+  <div class='section'>
+    <div class='docs'><h1>menu.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Screen to display the Main Menu.<br />
+<strong>module</strong> : Otto.screens.menu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">from</span>   <span class="nn">lib.base</span> <span class="kn">import</span> <span class="n">Base</span>
+<span class="kn">import</span> <span class="nn">lib.core</span>
+<span class="kn">import</span> <span class="nn">lib.services.font_manager</span>
+<span class="kn">import</span> <span class="nn">lib.services.sound_manager</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">MainMenu</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+
+    <span class="n">menu_group</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">LayeredUpdates</span><span class="p">()</span>
+    <span class="n">font_group</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">font_manager</span><span class="o">.</span><span class="n">FontManager</span><span class="p">()</span>
+    <span class="n">sound_group</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">sound_manager</span><span class="o">.</span><span class="n">SoundManager</span><span class="p">()</span>
+    <span class="n">resources</span> <span class="o">=</span> <span class="p">{}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Base</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Main loop for this screen. Handles initial loading, and constant drawing
+until GameState changes.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">draw_background</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">screen</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_resources</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_fonts</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_sounds</span><span class="p">()</span>
+
+        <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+
+            <span class="n">clicked</span> <span class="o">=</span> <span class="bp">False</span>
+
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">handle_core_events</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="n">pygame</span><span class="o">.</span><span class="n">MOUSEBUTTONDOWN</span><span class="p">:</span>
+                    <span class="n">clicked</span> <span class="o">=</span> <span class="bp">True</span>
+
+            <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_menu_hover</span><span class="p">(</span><span class="n">clicked</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">ret</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">ret</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">menu_group</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">screen</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">font_group</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">screen</span><span class="p">)</span>
+
+            <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <h3>Events</h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Handles changing the display when various menu items are hovered over.
+Also handles the click action that changes the GameState.     <br />
+</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">check_menu_hover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clicked</span><span class="p">):</span>
+
+        <span class="n">coords</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">mouse</span><span class="o">.</span><span class="n">get_pos</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">font_group</span><span class="o">.</span><span class="n">messages</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">font_group</span><span class="o">.</span><span class="n">messages</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="n">icon</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resources</span><span class="p">[</span><span class="n">message</span><span class="p">[</span><span class="s">&#39;key&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s">&#39;_icon&#39;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s">&#39;rect&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">message</span><span class="p">[</span><span class="s">&#39;rect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">collidepoint</span><span class="p">(</span><span class="n">coords</span><span class="p">):</span>
+
+                <span class="n">message</span><span class="p">[</span><span class="s">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">199</span><span class="p">,</span> <span class="mi">196</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">icon</span><span class="p">[</span><span class="s">&#39;image&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s">&#39;otto_interface_circle.png&#39;</span><span class="p">:</span>
+                    <span class="n">icon</span><span class="p">[</span><span class="s">&#39;image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;otto_interface_circle.png&#39;</span>
+                    <span class="n">icon</span><span class="p">[</span><span class="s">&#39;sprite&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_sprite</span><span class="p">(</span><span class="n">icon</span><span class="p">,</span> <span class="n">icon</span><span class="p">[</span><span class="s">&#39;sprite&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">sound_group</span><span class="o">.</span><span class="n">play_sound</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="s">&#39;key&#39;</span><span class="p">])</span>
+
+                <span class="k">if</span> <span class="n">clicked</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">message</span><span class="p">[</span><span class="s">&#39;state&#39;</span><span class="p">]</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">message</span><span class="p">[</span><span class="s">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">77</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">77</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">icon</span><span class="p">[</span><span class="s">&#39;image&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s">&#39;otto_interface_x.png&#39;</span><span class="p">:</span>
+                    <span class="n">icon</span><span class="p">[</span><span class="s">&#39;image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;otto_interface_x.png&#39;</span>
+                    <span class="n">icon</span><span class="p">[</span><span class="s">&#39;sprite&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_sprite</span><span class="p">(</span><span class="n">icon</span><span class="p">,</span> <span class="n">icon</span><span class="p">[</span><span class="s">&#39;sprite&#39;</span><span class="p">])</span>  
+        
+        <span class="k">return</span> <span class="bp">False</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <h3>Resources</h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>Load image resources into a pygame.LayeredUpdate for this screen.   <br />
+</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">load_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">resources</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;bg&#39;</span>            <span class="p">:</span> <span class="p">{</span><span class="s">&#39;layer&#39;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#39;topleft&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>     <span class="s">&#39;image&#39;</span> <span class="p">:</span> <span class="s">&#39;otto_interface_bg.jpg&#39;</span><span class="p">,</span> <span class="s">&#39;sprite&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">},</span>
+            <span class="s">&#39;logo&#39;</span>          <span class="p">:</span> <span class="p">{</span><span class="s">&#39;layer&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;topleft&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">125</span><span class="p">],</span> <span class="s">&#39;image&#39;</span> <span class="p">:</span> <span class="s">&#39;otto_logo.png&#39;</span><span class="p">,</span> <span class="s">&#39;sprite&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">},</span>
+            <span class="s">&#39;play_icon&#39;</span>     <span class="p">:</span> <span class="p">{</span><span class="s">&#39;layer&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;topleft&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">615</span><span class="p">,</span> <span class="mi">414</span><span class="p">],</span> <span class="s">&#39;image&#39;</span> <span class="p">:</span> <span class="s">&#39;otto_interface_x.png&#39;</span><span class="p">,</span> <span class="s">&#39;sprite&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">},</span>
+            <span class="s">&#39;option_icon&#39;</span>   <span class="p">:</span> <span class="p">{</span><span class="s">&#39;layer&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;topleft&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">615</span><span class="p">,</span> <span class="mi">464</span><span class="p">],</span> <span class="s">&#39;image&#39;</span> <span class="p">:</span> <span class="s">&#39;otto_interface_x.png&#39;</span><span class="p">,</span> <span class="s">&#39;sprite&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">},</span>
+            <span class="s">&#39;quit_icon&#39;</span>     <span class="p">:</span> <span class="p">{</span><span class="s">&#39;layer&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;topleft&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">615</span><span class="p">,</span> <span class="mi">514</span><span class="p">],</span> <span class="s">&#39;image&#39;</span> <span class="p">:</span> <span class="s">&#39;otto_interface_x.png&#39;</span><span class="p">,</span> <span class="s">&#39;sprite&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span>        
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="n">assets</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">resources</span><span class="p">:</span>
+            <span class="n">asset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resources</span><span class="p">[</span><span class="n">assets</span><span class="p">]</span>
+            <span class="n">spr</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+            <span class="n">spr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_sprite</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">spr</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">menu_group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">spr</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>Grab each image from file system and conver tto a Sprite before it is sent
+to menu_group (LayeredUpdate).</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">load_sprite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset</span><span class="p">,</span> <span class="n">spr</span><span class="p">):</span>
+        <span class="n">spr</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#39;resources/&#39;</span> <span class="o">+</span> <span class="n">asset</span><span class="p">[</span><span class="s">&#39;image&#39;</span><span class="p">])</span>
+        <span class="n">spr</span><span class="o">.</span><span class="n">rect</span> <span class="o">=</span> <span class="n">spr</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+        <span class="n">spr</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">topleft</span> <span class="o">=</span> <span class="n">asset</span><span class="p">[</span><span class="s">&#39;topleft&#39;</span><span class="p">]</span>
+        <span class="n">spr</span><span class="o">.</span><span class="n">_layer</span> <span class="o">=</span> <span class="n">asset</span><span class="p">[</span><span class="s">&#39;layer&#39;</span><span class="p">]</span>
+        <span class="n">asset</span><span class="p">[</span><span class="s">&#39;sprite&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spr</span>
+        <span class="k">return</span> <span class="n">spr</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>Load a group of fonts using FontManager.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">load_fonts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s">&#39;layer&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;font&#39;</span> <span class="p">:</span> <span class="s">&#39;resources/dinconra.ttf&#39;</span><span class="p">,</span> <span class="s">&#39;size&#39;</span> <span class="p">:</span> <span class="mi">35</span><span class="p">,</span> <span class="s">&#39;color&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">77</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">77</span><span class="p">),</span> <span class="s">&#39;topleft&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">650</span><span class="p">,</span> <span class="mi">405</span><span class="p">],</span> <span class="s">&#39;text&#39;</span> <span class="p">:</span> <span class="s">&#39;play&#39;</span><span class="p">,</span> <span class="s">&#39;key&#39;</span> <span class="p">:</span> <span class="s">&#39;play&#39;</span><span class="p">,</span> <span class="s">&#39;state&#39;</span> <span class="p">:</span> <span class="n">lib</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">GameState</span><span class="o">.</span><span class="n">PLAYING</span><span class="p">},</span>
+            <span class="p">{</span><span class="s">&#39;layer&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;font&#39;</span> <span class="p">:</span> <span class="s">&#39;resources/dinconra.ttf&#39;</span><span class="p">,</span> <span class="s">&#39;size&#39;</span> <span class="p">:</span> <span class="mi">35</span><span class="p">,</span> <span class="s">&#39;color&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">77</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">77</span><span class="p">),</span> <span class="s">&#39;topleft&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">650</span><span class="p">,</span> <span class="mi">455</span><span class="p">],</span> <span class="s">&#39;text&#39;</span> <span class="p">:</span> <span class="s">&#39;options&#39;</span><span class="p">,</span> <span class="s">&#39;key&#39;</span> <span class="p">:</span> <span class="s">&#39;option&#39;</span><span class="p">,</span> <span class="s">&#39;state&#39;</span> <span class="p">:</span> <span class="n">lib</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">GameState</span><span class="o">.</span><span class="n">OPTIONS</span><span class="p">},</span>
+            <span class="p">{</span><span class="s">&#39;layer&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;font&#39;</span> <span class="p">:</span> <span class="s">&#39;resources/dinconra.ttf&#39;</span><span class="p">,</span> <span class="s">&#39;size&#39;</span> <span class="p">:</span> <span class="mi">35</span><span class="p">,</span> <span class="s">&#39;color&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">77</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">77</span><span class="p">),</span> <span class="s">&#39;topleft&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">650</span><span class="p">,</span> <span class="mi">505</span><span class="p">],</span> <span class="s">&#39;text&#39;</span> <span class="p">:</span> <span class="s">&#39;quit&#39;</span><span class="p">,</span> <span class="s">&#39;key&#39;</span> <span class="p">:</span> <span class="s">&#39;quit&#39;</span><span class="p">,</span> <span class="s">&#39;state&#39;</span> <span class="p">:</span> <span class="n">lib</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">GameState</span><span class="o">.</span><span class="n">EXITING</span><span class="p">}</span>
+        <span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">font_group</span><span class="o">.</span><span class="n">add_messages</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>Load sounds using SoundManager.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">load_sounds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sound_group</span><span class="o">.</span><span class="n">add_sound</span><span class="p">(</span><span class="s">&#39;play&#39;</span><span class="p">,</span> <span class="s">&#39;resources/sound/Otto_interface_snd_01.ogg&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sound_group</span><span class="o">.</span><span class="n">add_sound</span><span class="p">(</span><span class="s">&#39;option&#39;</span><span class="p">,</span> <span class="s">&#39;resources/sound/Otto_interface_snd_02.ogg&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sound_group</span><span class="o">.</span><span class="n">add_sound</span><span class="p">(</span><span class="s">&#39;quit&#39;</span><span class="p">,</span> <span class="s">&#39;resources/sound/Otto_interface_snd_03.ogg&#39;</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>

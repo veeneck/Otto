@@ -257,3 +257,11 @@ footer {
 .orange {
   color: #FF9900;
 }
+
+.indent1 {
+  margin-left: 20px;
+}
+
+.indent2 {
+  margin-left: 40px;
+}

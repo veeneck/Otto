@@ -26,16 +26,31 @@
       </header>
       <section>
       
-<h3>Getting Started. __The easy way__</h3>
+<h3>Quick Start</h3>
 
-<p>Installation Guide here.</p>
+<p>The easiest way to get up and running is to install the various dependencies straight on your computer. The downside to this is that everything is not contained inside of a virtual environment, so any mistakes made will affect your root system. The alternative is to use a <a href="#virtual">virtual environment</a> -- otherwise get started below.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p>First, we'll install pygame. To do that, head to the <a href="http://www.pygame.org/download.shtml">downloads page</a>, and grab the latest version of the <u>OSX Lion</u> build. Run the installer.</p>
+
+<p>Next, <a href="https://github.com/gameandcode/Otto/zipball/master">download the source code</a>, or install it from Git.</p>
+
+<pre><code>$ cd project_path/repo_name
+$ git clone https://github.com/gameandcode/Otto.git
 </code></pre>
 
-<p>Run the project.</p>
+<p>Open terminal if it is not already open.</p>
+
+<pre><code>$ cd project_path/repo_name
+$ python main.py
+</code></pre>
+
+<p>At this point, you should see the game working.</p>
+
+<h3>Screenshots</h3>
+
+<p><img src="images/screen1.png" width="250px" style="float: left;" />
+
+<img src="images/screen2.png" width="250px" /></p>
 
 <h3>Documentation</h3>
 
@@ -43,18 +58,53 @@ $ git checkout gh-pages
 
 <p>In order to contribute code, documentation is necessary. To view docs locally, you will have to install Pycco.</p>
 
+<pre><code>$ pip install pycco
+</code></pre>
+
 <h3>Built With</h3>
 
-<p>Links to the open srouce prjects and docs.</p>
+<ul>
+<li><a href="http://www.pygame.org/">Pygame</a> - Core game framework.</li>
+<li><a href="http://www.mapeditor.org/">Tiled</a> - Tile based map editor.</li>
+<li><a href="http://fitzgen.github.com/pycco/">Pycco</a> - Documentation.</li>
+</ul>
+
+<p>And the many other open source projects they depend on.</p>
 
 <h3>Authors and Contributors</h3>
 
 <p>Thanks to <a href="https://github.com/gameandcode" class="user-mention">@gameandcode</a> and <a href="https://github.com/chophaus" class="user-mention">@chophaus</a>!</p>
 
-<h3>Contact</h3>
 
-<p>Where to submit tickets / questions or follow us?</p>
-      </section>
+<h3 id="virtual">Virtual Environment</h3>
+
+<p><span class="orange">Note</span> -- this is not fully functional yet.</p>
+
+<p>Installing everything in a virtual environment is definitely the way to go, but it is a bit unstable and some trickery is required.</p>
+
+<p>Install Virtual Burrito</p>
+<pre><code>$ curl -s https://raw.github.com/brainsik/virtualenv-burrito/master/virtualenv-burrito.sh | bash
+$ source /Users/{USERNAME}/.venvburrito/startup.sh
+</code></pre>
+
+<p>Install Homebrew</p>
+<pre><code>$ /usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+</code></pre>
+
+<p>Install Pip</p>
+<pre><code>$ curl -O http://pypi.python.org/packages/source/p/pip/pip-1.0.tar.gz
+$ tar xvfz pip-1.0.tar.gz
+$ cd pip-1.0
+$ sudo python setup.py install
+</code></pre>
+
+<p>Install Pygame</p>
+<pre><code>$ brew install mercurial
+$ brew install sdl sdl_image sdl_mixer sdl_ttf smpeg portmidi 
+$ sudo pip install hg+http://bitbucket.org/pygame/pygame
+</code></pre>
+
+</section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/gameandcode">gameandcode</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
